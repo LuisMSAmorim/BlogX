@@ -1,0 +1,22 @@
+<%- include('../../partials/header.ejs') %> 
+<%- include('../../partials/navbar.ejs') %>
+<body>
+
+    <div class="container">
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>Editar administrador: </h2>
+            </div>
+            <div class="card-body">
+                <form action="/admin/users/update" method="POST">
+                    <label for="email" class="form-label">Email: </label>
+                    <input type="text" name="email" class="form-control" required value="<%= user.email %> ">
+                    <input type="hidden" name="id" value="<%= user.id %> ">
+                    <button type="submit" class="btn btn-dark mt-4">Atualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 

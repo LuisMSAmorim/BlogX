@@ -1,0 +1,46 @@
+<%- include('../../partials/header.ejs') %> 
+<%- include('../../partials/navbar.ejs') %>
+<body>
+
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Criar postagem: </h2>
+        </div>
+        <div class="card-body">
+            <form action="/admin/articles/create" method="POST">
+                <label for="title" class="form-label">Título: </label>
+                <input type="text" name="title" class="form-control">
+                <label for="body" class="mt-2 mb-2">Escreva a postagem: </label>
+                <textarea class="form-control mt-4" name="body" id="default"></textarea>
+                <select name="category" class="form-control mt-3">
+                    <% if(categories.length == 0){ %> 
+                        <option value="0">Não há categorias criadas, crie uma categoria para salvar postagens</option>
+                    <% }else if(categories.length > 0){ %> 
+                        <% categories.forEach(category => {  %> 
+                            <option value="<%= category.id %>"><%= category.title %></option>
+                            <% }) %> 
+                        <% } %> 
+                    </select>
+                    <% if(categories.length == 0){ %> 
+
+                    <% }else{ %> 
+                        <button type="submit" class="btn btn-dark mt-4">Cadastrar</button>
+                    <% } %> 
+            </form>
+        </div>
+    </div>
+</div>
+    
+</body>
+<%- include('../../partials/footer.ejs') %> 
+<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#default',
+        plugins: [
+            'advlist autolink fullscreen image imagetools print lists preview hr searchplace wordcount insertdatetime save talbe paste emoticons media importcss visualchars'
+        ],
+        language: 'pt_BR'
+      })
+</script>

@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs') %> 
+<%- include('../partials/navbar.ejs') %>
+<body>
+
+<div class="container mt-4">
+    <h1>Lista de categorias: </h1>
+    <% if(categories.length > 0){ %> 
+    <% categories.forEach(category => { %> 
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2><%= category.title %> </h2>
+            </div>
+            <div class="card-body">
+                <a href="/categories/<%= category.slug %> " class="btn btn-dark">Ver postagens</a>
+            </div>
+        </div>
+    <% })%>    
+    <% }else{ %> 
+        <h2 class="mt-4">Não há categorias para exibir</h2>
+    <% } %> 
+</div>
+</body>
+<%- include('../partials/footer.ejs') %> 

@@ -1,0 +1,43 @@
+<%- include('../../partials/header.ejs') %> 
+<%- include('../../partials/navbar.ejs') %>
+<body>
+<div class="container mt-5">
+    <h1>Lista de postagens: </h1>
+
+    <a href="/admin/articles/new" class="btn btn-dark mt-2">Criar nova postagem</a>
+    <% if(articles.length > 0){ %> 
+    <table class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Título</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Categoria</th>
+            <th scope="col" style="width: 10%">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% articles.forEach(articles => {  %> 
+                <tr>
+                    <th scope="row"><%= articles.id %> </td>
+                    <td><%= articles.title %> </td>
+                    <td><%= articles.slug %> </td>
+                    <td><%= articles.category.title %> </td>
+                    <td class="btn-custom">
+                        <a href="/admin/articles/edit/<%= articles.id %>" class="btn btn-warning">Editar</a>
+                        <form action="/admin/articles/delete" method="POST">
+                            <input type="hidden" name="id" value="<%= articles.id %>">
+                            <button type="submit" class="btn btn-danger ms-2">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %> 
+        </tbody>
+      </table>
+      <% }else{ %> 
+        <h2 class="mt-4">Não há artigos para exibir</h2>
+    <% } %> 
+</div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 

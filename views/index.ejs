@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %>
+
+<div class="container py-0">
+    <div class="p-5 mb-2 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-2 fw-bold">Bem vindo ao BlogX</h1>
+        <p class="col-md-10 fs-4">Aqui você pode realizar postagens de assuntos relativos ao seu gosto, além de separá-los por categorias e editá-los de acordo com suas necessidades.</p>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-60 p-5 text-white bg-dark rounded-3">
+          <h2>Postagens</h2>
+          <p>Clique no botão abaixo para ser redirecionado para a página de postagens.</p>
+          <a href="/articles"><button class="btn btn-outline-light" type="button">Postagens</button></a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-60 p-5 bg-light border rounded-3">
+          <h2>Categorias</h2>
+          <p>Clique no botão abaixo para ler selecionar a categoria dos artigos que deseja ler.</p>
+          <a href="/categories"><button class="btn btn-outline-secondary" type="button">Categorias</button></a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy; 2021
+    </footer>
+  </div>
+</main>
+
+<%- include('partials/footer.ejs') %> 

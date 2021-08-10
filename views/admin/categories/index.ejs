@@ -1,0 +1,41 @@
+<%- include('../../partials/header.ejs') %> 
+<%- include('../../partials/navbar.ejs') %>
+<body>
+<div class="container mt-5">
+    <h1>Lista de categorias: </h1>
+
+    <a href="/admin/categories/new" class="btn btn-dark mt-2">Criar nova categoria</a>
+    <% if(categories.length > 0){ %> 
+    <table class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Título</th>
+            <th scope="col">Slug</th>
+            <th scope="col" style="width: 10%">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% categories.forEach(category => {  %> 
+                <tr>
+                    <th scope="row"><%= category.id %> </td>
+                    <td><%= category.title %> </td>
+                    <td><%= category.slug %> </td>
+                    <td class="btn-custom">
+                        <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
+                        <form action="/admin/categories/delete" method="POST">
+                            <input type="hidden" name="id" value="<%= category.id %> ">
+                            <button type="submit" class="btn btn-danger ms-2">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %> 
+        </tbody>
+      </table>
+      <% }else{ %> 
+        <h2 class="mt-4">Não há categorias para exibir</h2>
+    <% } %> 
+</div>
+
+</body>
+<%- include('../../partials/footer.ejs') %> 
