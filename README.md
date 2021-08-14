@@ -2,7 +2,7 @@
 
 ![alt text](image.png)
 
-<p>A blog project developed with Node.JS, MySQL and Bootstrap. You can create, edite and delete your posts and add them separately by categories.</p>
+<p>A blog project developed with Node.JS, MySQL and Bootstrap. You can create, edit and delete your posts and add them separately by categories.</p>
 
 <h2>Next improvements</h2>
 
