@@ -19,6 +19,8 @@ router.get('/articles', (req, res) => {
     }).then(articles => {
         Category.findAll().then(categories => {
             res.render('articles/index', {articles, categories})
+        }).catch(error => {
+            res.render('articles/index', {articles, categories})
         })
     })
 })
@@ -121,7 +123,7 @@ router.post('/admin/articles/delete', adminAuth, (req, res) => {
             })
         }
     }else{
-        res.send('ERRO, esta categoria não contém um id válido')
+        res.send('ERRO, este artigo não contém um id válido')
     }
 
 })
